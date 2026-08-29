@@ -1,0 +1,45 @@
+# Example episode script for podcast_maker.py
+# Run with: python podcast_maker.py scripts/example_episode.yaml
+
+title: "第一期：欢迎收听"
+author: "我的播客"
+output: "ep01_welcome"          # -> output/ep01_welcome.mp3
+
+default_voice: "zh-CN-XiaoxiaoNeural"
+default_rate: "+0%"
+default_pitch: "+0Hz"
+
+background:
+  file: "assets/ambient/brown_noise.mp3"   # resolved relative to project root
+  gain_db: -24                              # level under speech
+  duck_boost_db: 10                         # how much louder during pauses
+  fade_in_ms: 3000
+  fade_out_ms: 5000
+
+segments:
+  - voice: "zh-CN-YunxiNeural"
+    rate: "+5%"
+    text: |
+      大家好，欢迎收听本期节目，我是主播小溪。
+
+  - pause: 500
+
+  - voice: "zh-CN-XiaoxiaoNeural"
+    text: |
+      今天我们要聊的话题是如何用人工智能制作播客。
+      整个过程其实非常简单，只需要一份文字稿和一些朗读指令。
+
+  - pause: 800
+
+  - voice: "zh-CN-YunxiNeural"
+    rate: "-10%"
+    pitch: "-2Hz"
+    text: |
+      没错，而且你可以为不同的段落指定不同的语速、语调，
+      甚至可以让多个声音在同一集节目里对话。
+
+  - pause: 500
+
+  - voice: "zh-CN-XiaoxiaoNeural"
+    text: |
+      好了，我们下期再见！
